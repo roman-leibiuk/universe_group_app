@@ -7,7 +7,14 @@
 
 import RxSwift
 
-final class SkillsViewModel: ViewModel {
-    private(set) lazy var transitionObservable: Observable<SkillsTransition> = transitionSubject.asObservable()
+final class SkillsViewModel: BaseViewModel {
+    var transitionObservable: Observable<SkillsTransition> {
+        transitionSubject.asObservable()
+    }
     private let transitionSubject = PublishSubject<SkillsTransition>()
+    private let allSkillsService: AllSkillsService
+    
+    init(allSkillsService: AllSkillsService) {
+        self.allSkillsService = allSkillsService
+    }
 }

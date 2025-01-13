@@ -8,20 +8,32 @@
 import Foundation
 import RxSwift
 
-final class SplashViewModel: ViewModel {
-    private(set) lazy var transitionObservable: Observable<SplashTransition> = transitionSubject.asObservable()
-    private let transitionSubject = PublishSubject<SplashTransition>()
-    private let skillsService: SkillsService
-    private let disposeBag = DisposeBag()
+final class SplashViewModel: BaseViewModel {
+    var transitionObservable: Observable<SplashTransition> {
+        transitionSubject.asObservable()
+    }
+    var isLoading: PublishSubject<Bool> = .init()
     
-    init(skillsService: SkillsService) {
-        self.skillsService = skillsService
+    private var transitionSubject = PublishSubject<SplashTransition>()
+    private let skillsFetchService: SkillsFetchService
+    private let allSkillsService: AllSkillsService
+    
+    init(
+        skillsFetchService: SkillsFetchService,
+        allSkillsService: AllSkillsService
+    ) {
+        self.skillsFetchService = skillsFetchService
+        self.allSkillsService = allSkillsService
     }
     
     func getData() {
-        skillsService.getSkills().subscribe(onNext: {[weak self] response in
-            self?.transitionSubject.onNext(.tabBar)
-        })
-        .disposed(by: disposeBag)
+        isLoading.onNext(true)
+        skillsFetchService.getSkills()
+            .subscribe(onNext: { [unowned self] response in
+                allSkillsService.skills.onNext(response)
+                transitionSubject.onNext(.tabBar)
+                isLoading.onNext(false)
+            })
+            .disposed(by: disposeBag)
     }
 }

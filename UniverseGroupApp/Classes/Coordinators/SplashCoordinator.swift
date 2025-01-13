@@ -11,6 +11,7 @@ import RxSwift
 final class SplashCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    var didFinishPublisher: PublishSubject<Void> = .init()
     
     private let container: AppContainer
     private let disposeBag = DisposeBag()
@@ -29,24 +30,15 @@ private extension SplashCoordinator {
     func splashScreen() {
         let module = SplashModuleBuilder.build(container: container)
         module.transitionObservable
-            .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: { [unowned self] transition in
                 switch transition {
                 case .tabBar:
-                    tabBarCoordinator()
+                    didFinishPublisher.onNext(())
+                    didFinishPublisher.onCompleted()
                 }
             })
             .disposed(by: disposeBag)
         
         setRoot(module.viewController)
-    }
-    
-    func tabBarCoordinator() {
-        let coordinator = TabBarCoordinator(
-            navigationController: navigationController,
-            container: container
-        )
-        childCoordinators.append(coordinator)
-        coordinator.start()
     }
 }

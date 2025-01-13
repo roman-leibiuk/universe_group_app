@@ -7,7 +7,11 @@
 
 import RxSwift
 
-final class SkillsServiceImpl: SkillsService {
+typealias SkillService = (SkillsFetchService & AllSkillsService & FavoriteSkillsService)
+
+final class SkillsServiceImpl: SkillService {
+    var skills: BehaviorSubject<[SkillModel]> = .init(value: [])
+    var favoriteSkills: BehaviorSubject<[SkillModel]> = .init(value: [])
  
     func getSkills() -> Observable<[SkillModel]> {
         Observable
@@ -15,4 +19,3 @@ final class SkillsServiceImpl: SkillsService {
             .delay(.seconds(3), scheduler: MainScheduler.instance)
     }
 }
-    

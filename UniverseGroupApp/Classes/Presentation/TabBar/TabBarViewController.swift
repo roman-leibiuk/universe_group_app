@@ -22,8 +22,6 @@ final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        
         viewControllers?
             .indices
             .reversed()
@@ -37,7 +35,4 @@ final class TabBarViewController: UITabBarController {
 }
 
 private extension TabBarViewController {
-    func setupUI() {
-        tabBar.tintColor = .yellow
-    }
 }

@@ -13,7 +13,10 @@ enum SplashTransition: Transition {
 
 final class SplashModuleBuilder {
     static func build(container: AppContainer) -> Module<SplashTransition, UIViewController> {
-        let viewModel = SplashViewModel(skillsService: container.skillsService)
+        let viewModel = SplashViewModel(
+            skillsFetchService: container.skillsFetchService,
+            allSkillsService: container.allSkillsService
+        )
         let viewController = SplashViewController(viewModel: viewModel)
         return Module(viewController: viewController, transitionObservable: viewModel.transitionObservable)
     }

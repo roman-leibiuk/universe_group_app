@@ -31,7 +31,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		32B1B0AF2D3565FD00248B40 /* Exceptions for "UniverseGroupApp" folder in "UniverseGroupApp" target */ = {
+		32E6B6862D357297006DD2F4 /* Exceptions for "UniverseGroupApp" folder in "UniverseGroupApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -44,7 +44,7 @@
 		32F3C4E12D3512A900CC75C2 /* UniverseGroupApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				32B1B0AF2D3565FD00248B40 /* Exceptions for "UniverseGroupApp" folder in "UniverseGroupApp" target */,
+				32E6B6862D357297006DD2F4 /* Exceptions for "UniverseGroupApp" folder in "UniverseGroupApp" target */,
 			);
 			path = UniverseGroupApp;
 			sourceTree = "<group>";
@@ -128,11 +128,11 @@
 				};
 			};
 			buildConfigurationList = 32F3C4DA2D3512A900CC75C2 /* Build configuration list for PBXProject "UniverseGroupApp" */;
-			developmentRegion = uk;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
-				uk,
 			);
 			mainGroup = 32F3C4D62D3512A900CC75C2;
 			minimizedProjectReferenceProxies = 1;
@@ -230,7 +230,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -287,7 +286,6 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

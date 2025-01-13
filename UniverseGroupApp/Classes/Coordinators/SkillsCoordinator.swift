@@ -19,6 +19,13 @@ final class SkillsCoordinator: Coordinator {
     }
     
     func start() {
-    
+        skillsScreen()
+    }
+}
+
+private extension SkillsCoordinator {
+    func skillsScreen() {
+        let module = SkillsModuleBuilder.build(container: container)
+        setRoot(module.viewController)
     }
 }
