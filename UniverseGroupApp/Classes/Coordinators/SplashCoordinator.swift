@@ -28,7 +28,7 @@ final class SplashCoordinator: Coordinator {
 private extension SplashCoordinator {
     func splashScreen() {
         let module = SplashModuleBuilder.build(container: container)
-        module.transitionPublisher
+        module.transitionObservable
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: { [unowned self] transition in
                 switch transition {

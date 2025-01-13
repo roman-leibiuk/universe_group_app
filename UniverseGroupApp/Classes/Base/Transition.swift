@@ -12,5 +12,5 @@ protocol Transition {}
 
 struct Module<T: Transition, V: UIViewController> {
     let viewController: V
-    let transitionPublisher: Observable<T>
+    let transitionObservable: Observable<T>
 }

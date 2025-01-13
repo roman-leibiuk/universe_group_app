@@ -8,4 +8,5 @@
 import Foundation
 
 protocol AppContainer: AnyObject {
+    var skillsService: SkillsService { get }
 }

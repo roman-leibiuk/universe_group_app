@@ -13,6 +13,6 @@ final class FavoriteSkillsModuleBuilder {
     static func build(container: AppContainer) -> Module<FavoriteSkillsTransition, UIViewController> {
         let viewModel = FavoriteSkillsViewModel()
         let viewController = FavoriteSkillsViewController(viewModel: viewModel)
-        return Module(viewController: viewController, transitionPublisher: viewModel.transitionPublisher)
+        return Module(viewController: viewController, transitionObservable: viewModel.transitionObservable)
     }
 }

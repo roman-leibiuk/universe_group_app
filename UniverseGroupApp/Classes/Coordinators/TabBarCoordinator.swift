@@ -11,6 +11,8 @@ final class TabBarCoordinator: Coordinator {
     enum Constants {
         static let starImageName = "star"
         static let heartImageName = "heart"
+        static let skillsTitle = "skills".localized()
+        static let favoriteSkillsTitle = "favoriteSkills".localized()
     }
     
     var childCoordinators: [Coordinator] = []
@@ -24,7 +26,9 @@ final class TabBarCoordinator: Coordinator {
     }
     
     func start() {
-    
+        setupSkillCoordinator()
+        setupFavoriteSkillCoordinator()
+        setupTabBar()
     }
 }
 
@@ -32,7 +36,7 @@ private extension TabBarCoordinator {
     func setupSkillCoordinator() {
         let navigationController = UINavigationController()
         navigationController.tabBarItem = .init(
-            title: "Skills",
+            title: Constants.skillsTitle,
             image: UIImage(systemName: Constants.starImageName),
             tag: 0
         )
@@ -48,7 +52,7 @@ private extension TabBarCoordinator {
     func setupFavoriteSkillCoordinator() {
         let navigationController = UINavigationController()
         navigationController.tabBarItem = .init(
-            title: "Favorite skills",
+            title: Constants.favoriteSkillsTitle,
             image: UIImage(systemName: Constants.heartImageName),
             tag: 1
         )
@@ -59,5 +63,11 @@ private extension TabBarCoordinator {
         )
         childCoordinators.append(coordinator)
         coordinator.start()
+    }
+    
+    func setupTabBar() {
+        let viewControllers = childCoordinators.compactMap { $0.navigationController }
+        let module = TabBarModuleBuilder.build(viewControllers: viewControllers)
+        setRoot(module.viewController)
     }
 }

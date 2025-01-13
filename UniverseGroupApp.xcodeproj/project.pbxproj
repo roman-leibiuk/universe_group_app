@@ -30,15 +30,23 @@
 		32F3C4DF2D3512A900CC75C2 /* UniverseGroupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniverseGroupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		32B1B0AF2D3565FD00248B40 /* Exceptions for "UniverseGroupApp" folder in "UniverseGroupApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 32F3C4DE2D3512A900CC75C2 /* UniverseGroupApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		32F3C4E12D3512A900CC75C2 /* UniverseGroupApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				32B1B0AF2D3565FD00248B40 /* Exceptions for "UniverseGroupApp" folder in "UniverseGroupApp" target */,
+			);
 			path = UniverseGroupApp;
-			sourceTree = "<group>";
-		};
-		32F3C53E2D3525E200CC75C2 /* Frameworks */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				32F3C4E12D3512A900CC75C2 /* UniverseGroupApp */,
-				32F3C53E2D3525E200CC75C2 /* Frameworks */,
 				32F3C4E02D3512A900CC75C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +100,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				32F3C4E12D3512A900CC75C2 /* UniverseGroupApp */,
-				32F3C53E2D3525E200CC75C2 /* Frameworks */,
 			);
 			name = UniverseGroupApp;
 			packageProductDependencies = (
@@ -122,11 +128,11 @@
 				};
 			};
 			buildConfigurationList = 32F3C4DA2D3512A900CC75C2 /* Build configuration list for PBXProject "UniverseGroupApp" */;
-			developmentRegion = en;
+			developmentRegion = uk;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				uk,
 			);
 			mainGroup = 32F3C4D62D3512A900CC75C2;
 			minimizedProjectReferenceProxies = 1;
@@ -224,6 +230,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -280,6 +287,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -294,9 +302,9 @@
 				DEVELOPMENT_TEAM = T9G9G976D7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UniverseGroupApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16;
@@ -327,9 +335,9 @@
 				DEVELOPMENT_TEAM = T9G9G976D7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UniverseGroupApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16;
