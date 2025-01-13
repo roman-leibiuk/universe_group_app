@@ -22,6 +22,8 @@ final class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        
         viewControllers?
             .indices
             .reversed()
@@ -31,5 +33,11 @@ final class TabBarViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+}
+
+private extension TabBarViewController {
+    func setupUI() {
+        tabBar.tintColor = .yellow
     }
 }

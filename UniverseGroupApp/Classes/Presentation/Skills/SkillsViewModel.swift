@@ -8,6 +8,6 @@
 import RxSwift
 
 final class SkillsViewModel: ViewModel {
-    private(set) lazy var transitionPublisher: Observable<SkillsTransition> = transitionSubject.asObservable()
+    private(set) lazy var transitionObservable: Observable<SkillsTransition> = transitionSubject.asObservable()
     private let transitionSubject = PublishSubject<SkillsTransition>()
 }
