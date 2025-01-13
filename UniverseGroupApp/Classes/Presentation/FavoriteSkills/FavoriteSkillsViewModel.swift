@@ -7,7 +7,14 @@
 
 import RxSwift
 
-final class FavoriteSkillsViewModel: ViewModel {
-    private(set) lazy var transitionObservable: Observable<FavoriteSkillsTransition> = transitionSubject.asObservable()
+final class FavoriteSkillsViewModel: BaseViewModel {
+    var transitionObservable: Observable<FavoriteSkillsTransition> {
+        transitionSubject.asObservable()
+    }
     private let transitionSubject = PublishSubject<FavoriteSkillsTransition>()
+    private let favoriteSkillsService: FavoriteSkillsService
+    
+    init(favoriteSkillsService: FavoriteSkillsService) {
+        self.favoriteSkillsService = favoriteSkillsService
+    }
 }

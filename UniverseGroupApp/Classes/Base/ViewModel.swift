@@ -6,5 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ViewModel { }
+
+class BaseViewModel: ViewModel {
+    let disposeBag = DisposeBag()
+}

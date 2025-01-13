@@ -68,6 +68,6 @@ private extension TabBarCoordinator {
     func setupTabBar() {
         let viewControllers = childCoordinators.compactMap { $0.navigationController }
         let module = TabBarModuleBuilder.build(viewControllers: viewControllers)
-        setRoot(module.viewController)
+        setRoot(module.viewController, animated: false)
     }
 }

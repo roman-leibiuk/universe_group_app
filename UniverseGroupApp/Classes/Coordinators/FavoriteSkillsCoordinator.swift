@@ -19,6 +19,13 @@ final class FavoriteSkillsCoordinator: Coordinator {
     }
     
     func start() {
-    
+        favoriteSkillsScreen()
+    }
+}
+
+private extension FavoriteSkillsCoordinator {
+    func favoriteSkillsScreen() {
+        let module = FavoriteSkillsModuleBuilder.build(container: container)
+        setRoot(module.viewController)
     }
 }

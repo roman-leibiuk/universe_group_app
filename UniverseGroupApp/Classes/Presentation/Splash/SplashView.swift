@@ -6,8 +6,30 @@
 //
 
 import UIKit
+import RxCocoa
+import SnapKit
 
 final class SplashView: UIView {
+    enum Constants {
+        static let logoImageWidth = 356
+        static let logoImageHeight = 156
+        static let loadingIndicatorTopPadding = 16
+    }
+    
+    private lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView .translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(resource: ImageResource.ugLogo)
+        return imageView
+    }()
+    
+    private(set) lazy var loadingIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator .translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.color = .systemYellow
+        return activityIndicator
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +43,25 @@ final class SplashView: UIView {
 
 private extension SplashView {
     func setupUI() {
-        backgroundColor = .red
+        backgroundColor = .white
+        addSubview(logoImageView)
+        addSubview(loadingIndicator)
+        configureLogoImageView()
+        configureLoadingIndicator()
+    }
+    
+    func configureLogoImageView() {
+        logoImageView.snp.makeConstraints {
+            $0.center.equalTo(self)
+            $0.width.equalTo(Constants.logoImageWidth)
+            $0.height.equalTo(Constants.logoImageHeight)
+        }
+    }
+    
+    func configureLoadingIndicator() {
+        loadingIndicator.snp.makeConstraints {
+            $0.centerX.equalTo(self)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(Constants.loadingIndicatorTopPadding)
+        }
     }
 }

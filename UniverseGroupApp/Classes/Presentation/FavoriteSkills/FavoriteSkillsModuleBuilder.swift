@@ -11,7 +11,7 @@ enum FavoriteSkillsTransition: Transition {}
 
 final class FavoriteSkillsModuleBuilder {
     static func build(container: AppContainer) -> Module<FavoriteSkillsTransition, UIViewController> {
-        let viewModel = FavoriteSkillsViewModel()
+        let viewModel = FavoriteSkillsViewModel(favoriteSkillsService: container.favoriteSkillsService)
         let viewController = FavoriteSkillsViewController(viewModel: viewModel)
         return Module(viewController: viewController, transitionObservable: viewModel.transitionObservable)
     }

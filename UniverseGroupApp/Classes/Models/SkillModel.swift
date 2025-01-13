@@ -10,6 +10,7 @@ import Foundation
 struct SkillModel {
     let title: String
     let description: String
+    var isSelected: Bool = false
 }
 
 extension SkillModel {

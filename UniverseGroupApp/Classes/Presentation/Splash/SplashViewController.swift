@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class SplashViewController: BaseViewController<SplashViewModel> {
     private let contentView = SplashView()
@@ -16,7 +17,16 @@ final class SplashViewController: BaseViewController<SplashViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bind()
         viewModel.getData()
+    }
+}
+
+private extension SplashViewController {
+    func bind() {
+        viewModel.isLoading
+            .observe(on: MainScheduler.instance)
+            .bind(to: contentView.loadingIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
     }
 }
