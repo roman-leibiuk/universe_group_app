@@ -30,7 +30,7 @@ final class SplashViewModel: BaseViewModel {
         isLoading.onNext(true)
         skillsFetchService.getSkills()
             .subscribe(onNext: { [unowned self] response in
-                allSkillsService.skills.onNext(response)
+                allSkillsService.update(skills: response)
                 transitionSubject.onNext(.tabBar)
                 isLoading.onNext(false)
             })

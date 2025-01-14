@@ -8,6 +8,10 @@
 import RxSwift
 
 protocol AllSkillsService {
-    var skills: BehaviorSubject<[SkillModel]> { get set }
+    var skillsObservable: Observable<[SkillModel]> { get }
+    
+    func update(skills: [SkillModel])
+    func toggleSelection(for skill: SkillModel)
+    func setAllSkillsSelection(isSelected: Bool)
 }
 

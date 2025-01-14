@@ -9,18 +9,20 @@ import UIKit
 import RxSwift
 
 enum SkillCellType {
-    case regular
+    case deselect
     case checkmark
 }
 
 final class SkillCell: UITableViewCell {
     enum Constants {
-        static let selected = "checkmark.circle"
-        static let deSelected = "circle"
+        static let selectedIconName = "checkmark.circle"
+        static let deselectedIconName = "circle"
+        static let removeIconName = "minus.circle"
         static let defaultPadding = 16
+        static let rightButtonSize = 24
     }
     
-    private let button = UIButton(type: .system)
+    let rightButton = UIButton()
     private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -47,7 +49,7 @@ final class SkillCell: UITableViewCell {
     }()
     
     private(set) var disposeBag = DisposeBag()
-    private var type: SkillCellType = .regular
+    private var type: SkillCellType = .checkmark
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -67,14 +69,25 @@ final class SkillCell: UITableViewCell {
         titleLabel.text = model.title.localized()
         descriptionLabel.text = model.description.localized()
         
-        button.setImage(
-            model.isSelected
-            ? UIImage(systemName: Constants.selected)
-            : UIImage(systemName: Constants.deSelected),
-            for: .normal
-        )
-        
-        button.isHidden = type == .regular
+        switch type {
+        case .checkmark:
+            rightButton.isEnabled = false
+            rightButton.tintColor = .systemBlue
+            rightButton.setImage(
+                model.isSelected
+                ? UIImage(systemName: Constants.selectedIconName)
+                : UIImage(systemName: Constants.deselectedIconName),
+                for: .disabled
+            )
+            
+        case .deselect:
+            rightButton.isEnabled = true
+            rightButton.tintColor = .systemRed
+            rightButton.setImage(
+                UIImage(systemName: Constants.removeIconName),
+                for: .normal
+            )
+        }
     }
     
     private func setupUI() {
@@ -82,18 +95,23 @@ final class SkillCell: UITableViewCell {
         contentView.addSubview(containerStackView)
         containerStackView.addArrangedSubview(titleLabel)
         containerStackView.addArrangedSubview(descriptionLabel)
-        contentView.addSubview(button)
+        contentView.addSubview(rightButton)
         
         containerStackView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(Constants.defaultPadding)
             $0.top.equalToSuperview().offset(Constants.defaultPadding)
             $0.bottom.equalToSuperview().offset(-Constants.defaultPadding)
-            $0.trailing.equalTo(button.snp.leading).offset(-Constants.defaultPadding)
+            $0.trailing.equalTo(rightButton.snp.leading).offset(-Constants.defaultPadding)
         }
 
-        button.snp.makeConstraints {
+        rightButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-Constants.defaultPadding)
             $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(Constants.rightButtonSize)
+        }
+        
+        rightButton.imageView?.snp.makeConstraints { make in
+            make.width.height.equalTo(Constants.rightButtonSize)
         }
     }
 }

@@ -11,8 +11,8 @@ import RxSwift
 final class SkillsViewController: BaseViewController<SkillsViewModel> {
     enum Constants {
         static let navigationTitle = "skills"
-        static let selectAllIconName: String = "checkmark.rectangle.stack"
-        static let deselectAllIconName: String = "rectangle.stack"
+        static let selectAllIconName: String = "rectangle.stack"
+        static let deselectAllIconName: String = "rectangle.stack.badge.plus"
     }
     
     private let contentView = SkillsTableView()
@@ -24,9 +24,9 @@ final class SkillsViewController: BaseViewController<SkillsViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.onViewDidLoad()
         setupUI()
-        bind()
+        viewModel.onViewDidLoad()
+        bindViewModel()
     }
 }
 
@@ -34,6 +34,12 @@ private extension SkillsViewController {
     func setupUI() {
         configureTableView()
         configureNavigationBar()
+    }
+    
+    func bindViewModel() {
+        bindTableView()
+        bindEmptyStateLabel()
+        bindRightBarButtonItem()
     }
     
     func configureTableView() {
@@ -48,7 +54,7 @@ private extension SkillsViewController {
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    func bind() {
+    func bindTableView() {
         viewModel.skills
             .observe(on: MainScheduler.instance)
             .bind(
@@ -66,14 +72,18 @@ private extension SkillsViewController {
                 self?.viewModel.onCellSelected(model: model)
             }
             .disposed(by: disposeBag)
-        
+    }
+    
+    func bindEmptyStateLabel() {
         viewModel.skills
-            .observe(on: MainScheduler.instance)
             .map { !$0.isEmpty }
+            .observe(on: MainScheduler.instance)
             .bind(to: contentView.emptyStateLabel.rx.isHidden)
             .disposed(by: disposeBag)
-        
-        viewModel.isSelectedAll
+    }
+    
+    func bindRightBarButtonItem() {
+        viewModel.isAllSelected
             .distinctUntilChanged()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isSelectedAll in
