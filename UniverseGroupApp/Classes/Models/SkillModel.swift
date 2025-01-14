@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SkillModel {
+struct SkillModel: Identifiable {
+    var id: String
     let title: String
     let description: String
     var isSelected: Bool = false
@@ -16,29 +17,29 @@ struct SkillModel {
 extension SkillModel {
     static var allSkills: [SkillModel] {
         [
-            .init(title: "swiftTitle", description: "swiftDescription"),
-            .init(title: "objectiveCTitle", description: "objectiveCDescription"),
-            .init(title: "uikitTitle", description: "uikitDescription"),
-            .init(title: "swiftUITitle", description: "swiftUIDescription"),
-            .init(title: "coreDataTitle", description: "coreDataDescription"),
-            .init(title: "combineTitle", description: "combineDescription"),
-            .init(title: "rxswiftTitle", description: "rxswiftDescription"),
-            .init(title: "gcdTitle", description: "gcdDescription"),
-            .init(title: "operationQueuesTitle", description: "operationQueuesDescription"),
-            .init(title: "storyboardsTitle", description: "storyboardsDescription"),
-            .init(title: "autoLayoutTitle", description: "autoLayoutDescription"),
-            .init(title: "coreAnimationTitle", description: "coreAnimationDescription"),
-            .init(title: "networkingTitle", description: "networkingDescription"),
-            .init(title: "alamofireTitle", description: "alamofireDescription"),
-            .init(title: "unitTestingTitle", description: "unitTestingDescription"),
-            .init(title: "uiTestingTitle", description: "uiTestingDescription"),
-            .init(title: "debuggingTitle", description: "debuggingDescription"),
-            .init(title: "gitTitle", description: "gitDescription"),
-            .init(title: "cocoapodsTitle", description: "cocoapodsDescription"),
-            .init(title: "swiftPackageManagerTitle", description: "swiftPackageManagerDescription"),
-            .init(title: "jsonHandlingTitle", description: "jsonHandlingDescription"),
-            .init(title: "restAPITitle", description: "restAPIDescription"),
-            .init(title: "oauthTitle", description: "oauthDescription")
+            .init(id: UUID().uuidString, title: "swiftTitle", description: "swiftDescription"),
+            .init(id: UUID().uuidString, title: "objectiveCTitle", description: "objectiveCDescription"),
+            .init(id: UUID().uuidString, title: "uikitTitle", description: "uikitDescription"),
+            .init(id: UUID().uuidString, title: "swiftUITitle", description: "swiftUIDescription"),
+            .init(id: UUID().uuidString, title: "coreDataTitle", description: "coreDataDescription"),
+            .init(id: UUID().uuidString, title: "combineTitle", description: "combineDescription"),
+            .init(id: UUID().uuidString, title: "rxswiftTitle", description: "rxswiftDescription"),
+            .init(id: UUID().uuidString, title: "gcdTitle", description: "gcdDescription"),
+            .init(id: UUID().uuidString, title: "operationQueuesTitle", description: "operationQueuesDescription"),
+            .init(id: UUID().uuidString, title: "storyboardsTitle", description: "storyboardsDescription"),
+            .init(id: UUID().uuidString, title: "autoLayoutTitle", description: "autoLayoutDescription"),
+            .init(id: UUID().uuidString, title: "coreAnimationTitle", description: "coreAnimationDescription"),
+            .init(id: UUID().uuidString, title: "networkingTitle", description: "networkingDescription"),
+            .init(id: UUID().uuidString, title: "alamofireTitle", description: "alamofireDescription"),
+            .init(id: UUID().uuidString, title: "unitTestingTitle", description: "unitTestingDescription"),
+            .init(id: UUID().uuidString, title: "uiTestingTitle", description: "uiTestingDescription"),
+            .init(id: UUID().uuidString, title: "debuggingTitle", description: "debuggingDescription"),
+            .init(id: UUID().uuidString, title: "gitTitle", description: "gitDescription"),
+            .init(id: UUID().uuidString, title: "cocoapodsTitle", description: "cocoapodsDescription"),
+            .init(id: UUID().uuidString, title: "swiftPackageManagerTitle", description: "swiftPackageManagerDescription"),
+            .init(id: UUID().uuidString, title: "jsonHandlingTitle", description: "jsonHandlingDescription"),
+            .init(id: UUID().uuidString, title: "restAPITitle", description: "restAPIDescription"),
+            .init(id: UUID().uuidString, title: "oauthTitle", description: "oauthDescription")
         ]
     }
 }
