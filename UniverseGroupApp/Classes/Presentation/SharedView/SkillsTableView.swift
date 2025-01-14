@@ -27,7 +27,6 @@ final class SkillsTableView: UIView {
         label.textColor = .gray
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .medium)
-        label.isHidden = true
         return label
     }()
     
