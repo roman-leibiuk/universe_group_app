@@ -155,6 +155,17 @@
         }
       }
     },
+    "emptyStateTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Схоже тут нічого немає ☹️"
+          }
+        }
+      }
+    },
     "favoriteSkills" : {
       "extractionState" : "manual",
       "localizations" : {

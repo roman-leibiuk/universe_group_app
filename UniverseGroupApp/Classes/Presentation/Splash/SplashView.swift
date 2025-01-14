@@ -19,14 +19,12 @@ final class SplashView: UIView {
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView .translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(resource: ImageResource.ugLogo)
         return imageView
     }()
     
     private(set) lazy var loadingIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator .translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.color = .systemYellow
         return activityIndicator
     }()
