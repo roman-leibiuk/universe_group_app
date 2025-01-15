@@ -8,7 +8,7 @@
 import Foundation
 
 struct SkillModel: Identifiable {
-    var id: String
+    let id: String
     let title: String
     let description: String
     var isSelected: Bool = false

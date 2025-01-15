@@ -13,6 +13,6 @@ final class TabBarModuleBuilder {
     static func build(viewControllers: [UIViewController]) -> Module<TabBarTransition, UIViewController> {
         let viewModel = TabBarViewModel()
         let viewController = TabBarViewController(viewModel: viewModel, viewControllers: viewControllers)
-        return Module(viewController: viewController, transitionObservable: viewModel.transitionObservable)
+        return Module(viewController: viewController, transitionObservable: .empty())
     }
 }

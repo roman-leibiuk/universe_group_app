@@ -9,21 +9,19 @@ import RxSwift
 import RxRelay
 
 final class SkillsViewModel: BaseViewModel {
-    var transitionObservable: Observable<SkillsTransition> {
-        transitionSubject.asObservable()
-    }
-    
-    private let transitionSubject = PublishSubject<SkillsTransition>()
     private let allSkillsService: AllSkillsService
     
     private(set) var skills: BehaviorRelay<[SkillModel]> = .init(value: [])
     private(set) var isAllSelected: BehaviorRelay<Bool> = .init(value: false)
+    private(set) var isMultiSelected: BehaviorRelay<Bool> = .init(value: false)
     
     init(allSkillsService: AllSkillsService) {
         self.allSkillsService = allSkillsService
     }
     
-    func onViewDidLoad() {
+    override func onViewDidLoad() {
+        super.onViewDidLoad()
+        
         allSkillsService.skillsObservable
             .bind(to: skills)
             .disposed(by: disposeBag)
@@ -32,6 +30,11 @@ final class SkillsViewModel: BaseViewModel {
             .map { $0.allSatisfy { $0.isSelected } }
             .bind(to: isAllSelected)
             .disposed(by: disposeBag)
+    }
+    
+    override func onViewWillDisappear() {
+        super.onViewWillDisappear()
+        isMultiSelected.accept(false)
     }
     
     func onCellSelected(model skill: SkillModel) {

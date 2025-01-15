@@ -13,6 +13,6 @@ final class SkillsModuleBuilder {
     static func build(container: AppContainer) -> Module<SkillsTransition, UIViewController> {
         let viewModel = SkillsViewModel(allSkillsService: container.allSkillsService)
         let viewController = SkillsViewController(viewModel: viewModel)
-        return Module(viewController: viewController, transitionObservable: viewModel.transitionObservable)
+        return Module(viewController: viewController, transitionObservable: .empty())
     }
 }

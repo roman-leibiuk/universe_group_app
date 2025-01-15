@@ -12,11 +12,13 @@ final class SplashViewModel: BaseViewModel {
     var transitionObservable: Observable<SplashTransition> {
         transitionSubject.asObservable()
     }
+    
     var isLoading: PublishSubject<Bool> = .init()
     
-    private var transitionSubject = PublishSubject<SplashTransition>()
     private let skillsFetchService: SkillsFetchService
     private let allSkillsService: AllSkillsService
+    
+    private var transitionSubject = PublishSubject<SplashTransition>()
     
     init(
         skillsFetchService: SkillsFetchService,
@@ -26,6 +28,13 @@ final class SplashViewModel: BaseViewModel {
         self.allSkillsService = allSkillsService
     }
     
+    override func onViewDidLoad() {
+        super.onViewDidLoad()
+        getData()
+    }
+}
+
+private extension SplashViewModel {
     func getData() {
         isLoading.onNext(true)
         skillsFetchService.getSkills()

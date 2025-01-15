@@ -33,6 +33,3 @@ final class TabBarViewController: UITabBarController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 }
-
-private extension TabBarViewController {
-}

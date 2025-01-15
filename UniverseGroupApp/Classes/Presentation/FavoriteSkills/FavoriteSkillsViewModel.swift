@@ -9,23 +9,25 @@ import RxSwift
 import RxRelay
 
 final class FavoriteSkillsViewModel: BaseViewModel {
-    var transitionObservable: Observable<FavoriteSkillsTransition> {
-        transitionSubject.asObservable()
-    }
-    private let transitionSubject = PublishSubject<FavoriteSkillsTransition>()
     private let favoriteSkillsService: FavoriteSkillsService
     
     private(set) var skills: BehaviorRelay<[SkillModel]> = .init(value: [])
     private(set) var isAllRemoved: BehaviorRelay<Bool> = .init(value: false)
+    private(set) var isMultiSelected: BehaviorRelay<Bool> = .init(value: false)
     
     init(favoriteSkillsService: FavoriteSkillsService) {
         self.favoriteSkillsService = favoriteSkillsService
     }
     
-    func onViewDidLoad() {
+    override func onViewDidLoad() {
         favoriteSkillsService.favoriteSkillsObservable
             .bind(to: skills)
             .disposed(by: disposeBag)
+    }
+    
+    override func onViewWillDisappear() {
+        super.onViewWillDisappear()
+        isMultiSelected.accept(false)
     }
     
     func removeSkill(model skill: SkillModel) {

@@ -7,9 +7,4 @@
 
 import RxSwift
 
-final class TabBarViewModel: BaseViewModel {
-    var transitionObservable: Observable<TabBarTransition> {
-        transitionSubject.asObservable()
-    }
-    private let transitionSubject = PublishSubject<TabBarTransition>()
-}
+final class TabBarViewModel: BaseViewModel { }

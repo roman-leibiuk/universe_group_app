@@ -14,9 +14,10 @@ final class SkillsServiceImpl: SkillService {
     var skillsObservable: Observable<[SkillModel]> { skillsBehaviorRelay.asObservable() }
     var favoriteSkillsObservable: Observable<[SkillModel]> { favoriteSkillsBehaviorRelay.asObservable() }
     
-    private let disposeBag = DisposeBag()
     private var skillsBehaviorRelay: BehaviorRelay<[SkillModel]> = .init(value: [])
     private var favoriteSkillsBehaviorRelay: BehaviorRelay<[SkillModel]> = .init(value: [])
+    
+    private let disposeBag = DisposeBag()
     
     init() {
         self.skillsBehaviorRelay
@@ -48,8 +49,10 @@ extension SkillsServiceImpl {
             }
             var editedItem = $0
             editedItem.isSelected.toggle()
+            
             return editedItem
         }
+        
         skillsBehaviorRelay.accept(updateSkills)
     }
     
