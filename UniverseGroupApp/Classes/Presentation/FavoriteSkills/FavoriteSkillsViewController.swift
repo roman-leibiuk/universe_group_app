@@ -11,16 +11,18 @@ import RxSwift
 final class FavoriteSkillsViewController: BaseViewController<FavoriteSkillsViewModel> {
     enum Constants {
         static let navigationTitle = "favoriteSkills"
-        static let deselectedIconName = "heart.slash"
+        static let deselectedIconName = "heart.slash.fill"
         
         static let select = "select"
         static let cancel = "done"
         static let removeAll = "removeAll"
     }
     
-    private let contentView = SkillsTableView()
-    private let rightBarButtonItem = UIBarButtonItem()
-    private let leftBarButtonItem = UIBarButtonItem()
+    private lazy var contentView = SkillsTableView()
+    private lazy var rightBarButtonItem = UIBarButtonItem()
+    private lazy var leftBarButtonItem = UIBarButtonItem()
+    
+    private var isCellAnimated = false
     
     override func loadView() {
         view = contentView
@@ -83,13 +85,26 @@ private extension FavoriteSkillsViewController {
             self?.configureCell(cell, with: model)
         }
         .disposed(by: disposeBag)
+        
+        viewModel.isMultiSelected
+            .skip(1)
+            .do(onNext: { [weak self] isMultiSelected in
+                self?.isCellAnimated = true
+            })
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.isCellAnimated = false
+            })
+            .disposed(by: disposeBag)
     }
     
     func configureCell(_ cell: SkillCell, with model: SkillModel) {
         let cellType: SkillCellType = self.viewModel.isMultiSelected.value
         ? .deselect
         : .regular
-        cell.configure(with: model, type: cellType)
+        
+        cell.setType(cellType, animated: isCellAnimated)
+        cell.configure(with: model)
         
         cell.checkBoxButton.rx.tap
             .subscribe(onNext: { [weak self] in

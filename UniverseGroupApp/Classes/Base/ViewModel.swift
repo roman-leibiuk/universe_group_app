@@ -6,16 +6,8 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol ViewModel {
     func onViewDidLoad()
     func onViewWillDisappear()
-}
-
-class BaseViewModel: ViewModel {
-    let disposeBag = DisposeBag()
-    
-    func onViewDidLoad() {}
-    func onViewWillDisappear() {}
 }

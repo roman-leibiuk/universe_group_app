@@ -25,7 +25,7 @@ final class SplashView: UIView {
     
     private(set) lazy var loadingIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .systemYellow
+        activityIndicator.color = .label
         activityIndicator.startAnimating()
         return activityIndicator
     }()
@@ -33,6 +33,7 @@ final class SplashView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        flipLogo()
     }
 
     required init?(coder: NSCoder) {
@@ -61,6 +62,18 @@ private extension SplashView {
         loadingIndicator.snp.makeConstraints {
             $0.centerX.equalTo(self)
             $0.top.equalTo(logoImageView.snp.bottom).offset(Constants.loadingIndicatorTopPadding)
+        }
+    }
+    
+    func flipLogo() {
+        UIView.animateKeyframes(withDuration: 3, delay: 0, options: []) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.logoImageView.layer.transform = CATransform3DMakeRotation(.pi, 0, 1, 0)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.logoImageView.layer.transform = CATransform3DMakeRotation(2 * .pi, 0, 1, 0)
+            }
         }
     }
 }

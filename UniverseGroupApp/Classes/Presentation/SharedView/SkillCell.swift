@@ -16,9 +16,10 @@ enum SkillCellType {
 
 final class SkillCell: UITableViewCell {
     enum Constants {
-        static let selectedIconName = "checkmark.circle"
-        static let deselectedIconName = "circle"
+        static let selectedIconName = "heart.fill"
+        static let deselectedIconName = "heart"
         static let removeIconName = "minus.circle"
+        
         static let defaultPadding = 16
         static let checkBoxSize = 24
     }
@@ -35,7 +36,6 @@ final class SkillCell: UITableViewCell {
     private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.textAlignment = .left
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
@@ -43,7 +43,6 @@ final class SkillCell: UITableViewCell {
     private(set) lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
-        label.textAlignment = .left
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
@@ -55,10 +54,6 @@ final class SkillCell: UITableViewCell {
             guard oldValue != type else { return }
             checkBoxButton.snp.updateConstraints {
                 $0.leading.equalToSuperview().offset(checkBoxLeftOffset)
-            }
-            
-            UIView.animate(withDuration: 0.3) {
-                self.layoutIfNeeded()
             }
         }
     }
@@ -83,8 +78,15 @@ final class SkillCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
     
-    func configure(with model: SkillModel, type: SkillCellType) {
+    func setType(_ type: SkillCellType, animated: Bool) {
         self.type = type
+        guard animated else { return }
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func configure(with model: SkillModel) {
         titleLabel.text = model.title.localized()
         descriptionLabel.text = model.description.localized()
         
@@ -121,7 +123,7 @@ private extension SkillCell {
         contentView.addSubview(checkBoxButton)
         
         containerStackView.snp.makeConstraints {
-            $0.trailing.lessThanOrEqualToSuperview().offset(-Constants.defaultPadding)
+            $0.trailing.equalToSuperview().offset(-Constants.defaultPadding)
             $0.top.equalToSuperview().offset(Constants.defaultPadding)
             $0.bottom.equalToSuperview().offset(-Constants.defaultPadding)
         }
