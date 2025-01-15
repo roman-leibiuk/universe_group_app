@@ -1,0 +1,600 @@
+{
+  "sourceLanguage" : "uk",
+  "strings" : {
+    "alamofireDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бібліотека для роботи з HTTP-запитами."
+          }
+        }
+      }
+    },
+    "alamofireTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alamofire"
+          }
+        }
+      }
+    },
+    "autoLayoutDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Технологія для створення адаптивних інтерфейсів."
+          }
+        }
+      }
+    },
+    "autoLayoutTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto Layout"
+          }
+        }
+      }
+    },
+    "cocoapodsDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Менеджер залежностей для iOS-проєктів."
+          }
+        }
+      }
+    },
+    "cocoapodsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CocoaPods"
+          }
+        }
+      }
+    },
+    "combineDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інструмент для реактивного програмування у Swift."
+          }
+        }
+      }
+    },
+    "combineTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Combine"
+          }
+        }
+      }
+    },
+    "coreAnimationDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фреймворк для створення складних анімацій."
+          }
+        }
+      }
+    },
+    "coreAnimationTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Core Animation"
+          }
+        }
+      }
+    },
+    "coreDataDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фреймворк для управління локальною базою даних."
+          }
+        }
+      }
+    },
+    "coreDataTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Core Data"
+          }
+        }
+      }
+    },
+    "debuggingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використання інструментів для пошуку та виправлення помилок."
+          }
+        }
+      }
+    },
+    "debuggingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debugging"
+          }
+        }
+      }
+    },
+    "deselectAll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скасувати всі"
+          }
+        }
+      }
+    },
+    "done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
+      }
+    },
+    "emptyStateTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Схоже тут нічого немає ☹️"
+          }
+        }
+      }
+    },
+    "favoriteSkills" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Улюблені навички"
+          }
+        }
+      }
+    },
+    "gcdDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Робота з потоками та асинхронним виконанням задач."
+          }
+        }
+      }
+    },
+    "gcdTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GCD (Grand Central Dispatch)"
+          }
+        }
+      }
+    },
+    "gitDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Система контролю версій для командної роботи."
+          }
+        }
+      }
+    },
+    "gitTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git"
+          }
+        }
+      }
+    },
+    "jsonHandlingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обробка JSON для роботи з API."
+          }
+        }
+      }
+    },
+    "jsonHandlingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JSON Handling"
+          }
+        }
+      }
+    },
+    "networkingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Робота з API, HTTP-запити, обробка JSON."
+          }
+        }
+      }
+    },
+    "networkingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Networking"
+          }
+        }
+      }
+    },
+    "oauthDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інтеграція авторизації через OAuth."
+          }
+        }
+      }
+    },
+    "oauthTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OAuth"
+          }
+        }
+      }
+    },
+    "objectiveCDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знання Objective-C для роботи зі старим кодом."
+          }
+        }
+      }
+    },
+    "objectiveCTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objective-C Basics"
+          }
+        }
+      }
+    },
+    "operationQueuesDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Альтернативний спосіб управління потоками."
+          }
+        }
+      }
+    },
+    "operationQueuesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operation Queues"
+          }
+        }
+      }
+    },
+    "removeAll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити всі"
+          }
+        }
+      }
+    },
+    "restAPIDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Взаємодія з RESTful API."
+          }
+        }
+      }
+    },
+    "restAPITitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REST API"
+          }
+        }
+      }
+    },
+    "rxswiftDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярна бібліотека для реактивного програмування."
+          }
+        }
+      }
+    },
+    "rxswiftTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RxSwift"
+          }
+        }
+      }
+    },
+    "select" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрати"
+          }
+        }
+      }
+    },
+    "selectAll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрати всі"
+          }
+        }
+      }
+    },
+    "skills" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Навички"
+          }
+        }
+      }
+    },
+    "storyboardsDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інструменти для створення інтерфейсу."
+          }
+        }
+      }
+    },
+    "storyboardsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Storyboards and XIBs"
+          }
+        }
+      }
+    },
+    "swiftDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Основна мова програмування для iOS-розробки."
+          }
+        }
+      }
+    },
+    "swiftPackageManagerDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інструмент для управління пакетами та бібліотеками."
+          }
+        }
+      }
+    },
+    "swiftPackageManagerTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swift Package Manager"
+          }
+        }
+      }
+    },
+    "swiftTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swift Programming"
+          }
+        }
+      }
+    },
+    "swiftUIDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сучасна декларативна фреймворк для створення UI."
+          }
+        }
+      }
+    },
+    "swiftUITitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SwiftUI"
+          }
+        }
+      }
+    },
+    "uikitDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Базова фреймворк для побудови UI в iOS."
+          }
+        }
+      }
+    },
+    "uikitTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UIKit"
+          }
+        }
+      }
+    },
+    "uiTestingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автоматизація тестування інтерфейсів."
+          }
+        }
+      }
+    },
+    "uiTestingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UI Testing"
+          }
+        }
+      }
+    },
+    "unitTestingDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Написання юніт-тестів для перевірки коду."
+          }
+        }
+      }
+    },
+    "unitTestingTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unit Testing"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
