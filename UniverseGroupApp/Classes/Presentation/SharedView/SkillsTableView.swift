@@ -12,7 +12,7 @@ import SnapKit
 final class SkillsTableView: UIView {
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .singleLine
         tableView.allowsMultipleSelection = true
         tableView.backgroundView = emptyStateLabel
@@ -24,7 +24,7 @@ final class SkillsTableView: UIView {
     private(set) lazy var emptyStateLabel: UILabel = {
         let label = UILabel()
         label.text = "emptyStateTitle".localized()
-        label.textColor = .gray
+        label.textColor = .systemGray
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
@@ -42,7 +42,7 @@ final class SkillsTableView: UIView {
 
 private extension SkillsTableView {
     func setupUI() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         addSubview(tableView)
         addSubview(emptyStateLabel)
         configureTableView()

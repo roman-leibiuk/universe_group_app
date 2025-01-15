@@ -87,7 +87,8 @@ private extension SkillsViewController {
         
         contentView.tableView.rx.modelSelected(SkillModel.self)
             .subscribe { [weak self] model in
-                self?.viewModel.onCellSelected(model: model)
+                guard let self, self.viewModel.isMultiSelected.value else { return }
+                self.viewModel.onCellSelected(model: model)
             }
             .disposed(by: disposeBag)
     }

@@ -34,7 +34,7 @@ final class SkillCell: UITableViewCell {
     
     private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .label
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
@@ -42,7 +42,7 @@ final class SkillCell: UITableViewCell {
     
     private(set) lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray
+        label.textColor = .systemGray
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 14, weight: .regular)
@@ -90,24 +90,30 @@ final class SkillCell: UITableViewCell {
         
         switch type {
         case .checkmark:
+            let image = model.isSelected
+            ? Constants.selectedIconName
+            : Constants.deselectedIconName
+            
+            checkBoxButton.isHidden = false
             checkBoxButton.isEnabled = false
             checkBoxButton.tintColor = .systemBlue
-            let image = model.isSelected ? Constants.selectedIconName : Constants.deselectedIconName
             checkBoxButton.setImage(UIImage(systemName: image), for: .disabled)
             
         case .deselect:
+            checkBoxButton.isHidden = false
             checkBoxButton.isEnabled = true
             checkBoxButton.tintColor = .systemRed
             checkBoxButton.setImage(UIImage(systemName: Constants.removeIconName), for: .normal)
             
         case .regular:
-            checkBoxButton.isEnabled = false
+            checkBoxButton.isHidden = true
         }
     }
 }
 
 private extension SkillCell {
     func setupUI() {
+        backgroundColor = .systemBackground
         selectionStyle = .none
         contentView.addSubview(containerStackView)
         containerStackView.addArrangedSubview(titleLabel)

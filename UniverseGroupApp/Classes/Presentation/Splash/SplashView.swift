@@ -42,7 +42,7 @@ final class SplashView: UIView {
 
 private extension SplashView {
     func setupUI() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         addSubview(logoImageView)
         addSubview(loadingIndicator)
         configureLogoImageView()
