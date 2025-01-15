@@ -9,6 +9,7 @@ import RxSwift
 
 protocol FavoriteSkillsService {
     var favoriteSkillsObservable: Observable<[SkillModel]> { get }
+    
     func remove(favoriteSkill: SkillModel)
     func removeAll()
 }

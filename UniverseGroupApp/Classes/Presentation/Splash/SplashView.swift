@@ -26,6 +26,7 @@ final class SplashView: UIView {
     private(set) lazy var loadingIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.color = .systemYellow
+        activityIndicator.startAnimating()
         return activityIndicator
     }()
     

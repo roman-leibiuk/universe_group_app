@@ -11,8 +11,8 @@ final class TabBarCoordinator: Coordinator {
     enum Constants {
         static let starImageName = "star"
         static let heartImageName = "heart"
-        static let skillsTitle = "skills".localized()
-        static let favoriteSkillsTitle = "favoriteSkills".localized()
+        static let skillsTitle = "skills"
+        static let favoriteSkillsTitle = "favoriteSkills"
     }
     
     var childCoordinators: [Coordinator] = []
@@ -36,7 +36,7 @@ private extension TabBarCoordinator {
     func setupSkillCoordinator() {
         let navigationController = UINavigationController()
         navigationController.tabBarItem = .init(
-            title: Constants.skillsTitle,
+            title: Constants.skillsTitle.localized(),
             image: UIImage(systemName: Constants.starImageName),
             tag: 0
         )
@@ -52,7 +52,7 @@ private extension TabBarCoordinator {
     func setupFavoriteSkillCoordinator() {
         let navigationController = UINavigationController()
         navigationController.tabBarItem = .init(
-            title: Constants.favoriteSkillsTitle,
+            title: Constants.favoriteSkillsTitle.localized(),
             image: UIImage(systemName: Constants.heartImageName),
             tag: 1
         )

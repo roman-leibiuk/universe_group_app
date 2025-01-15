@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 
 enum SkillCellType {
+    case regular
     case deselect
     case checkmark
 }
@@ -19,10 +20,10 @@ final class SkillCell: UITableViewCell {
         static let deselectedIconName = "circle"
         static let removeIconName = "minus.circle"
         static let defaultPadding = 16
-        static let rightButtonSize = 24
+        static let checkBoxSize = 24
     }
     
-    let rightButton = UIButton()
+    let checkBoxButton = UIButton()
     private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -49,7 +50,24 @@ final class SkillCell: UITableViewCell {
     }()
     
     private(set) var disposeBag = DisposeBag()
-    private var type: SkillCellType = .checkmark
+    private var type: SkillCellType = .regular {
+        didSet {
+            guard oldValue != type else { return }
+            checkBoxButton.snp.updateConstraints {
+                $0.leading.equalToSuperview().offset(checkBoxLeftOffset)
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private var checkBoxLeftOffset: Int {
+        type == .regular
+        ? -Constants.checkBoxSize
+        : Constants.defaultPadding
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -66,52 +84,51 @@ final class SkillCell: UITableViewCell {
     }
     
     func configure(with model: SkillModel, type: SkillCellType) {
+        self.type = type
         titleLabel.text = model.title.localized()
         descriptionLabel.text = model.description.localized()
         
         switch type {
         case .checkmark:
-            rightButton.isEnabled = false
-            rightButton.tintColor = .systemBlue
-            rightButton.setImage(
-                model.isSelected
-                ? UIImage(systemName: Constants.selectedIconName)
-                : UIImage(systemName: Constants.deselectedIconName),
-                for: .disabled
-            )
+            checkBoxButton.isEnabled = false
+            checkBoxButton.tintColor = .systemBlue
+            let image = model.isSelected ? Constants.selectedIconName : Constants.deselectedIconName
+            checkBoxButton.setImage(UIImage(systemName: image), for: .disabled)
             
         case .deselect:
-            rightButton.isEnabled = true
-            rightButton.tintColor = .systemRed
-            rightButton.setImage(
-                UIImage(systemName: Constants.removeIconName),
-                for: .normal
-            )
+            checkBoxButton.isEnabled = true
+            checkBoxButton.tintColor = .systemRed
+            checkBoxButton.setImage(UIImage(systemName: Constants.removeIconName), for: .normal)
+            
+        case .regular:
+            checkBoxButton.isEnabled = false
         }
     }
-    
-    private func setupUI() {
+}
+
+private extension SkillCell {
+    func setupUI() {
         selectionStyle = .none
         contentView.addSubview(containerStackView)
         containerStackView.addArrangedSubview(titleLabel)
         containerStackView.addArrangedSubview(descriptionLabel)
-        contentView.addSubview(rightButton)
+        contentView.addSubview(checkBoxButton)
         
         containerStackView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(Constants.defaultPadding)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-Constants.defaultPadding)
             $0.top.equalToSuperview().offset(Constants.defaultPadding)
             $0.bottom.equalToSuperview().offset(-Constants.defaultPadding)
-            $0.trailing.equalTo(rightButton.snp.leading).offset(-Constants.defaultPadding)
         }
 
-        rightButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-Constants.defaultPadding)
+        checkBoxButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(-Constants.checkBoxSize)
+            $0.trailing.equalTo(containerStackView.snp.leading).offset(-Constants.defaultPadding)
             $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(Constants.rightButtonSize)
+            $0.height.width.equalTo(Constants.checkBoxSize)
         }
         
-        rightButton.imageView?.snp.makeConstraints { make in
-            make.width.height.equalTo(Constants.rightButtonSize)
+        checkBoxButton.imageView?.snp.makeConstraints {
+            $0.height.width.equalTo(Constants.checkBoxSize)
         }
     }
 }

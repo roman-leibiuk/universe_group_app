@@ -13,7 +13,7 @@ final class SkillsTableView: UIView {
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .white
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.allowsMultipleSelection = true
         tableView.backgroundView = emptyStateLabel
         tableView.rowHeight = UITableView.automaticDimension
